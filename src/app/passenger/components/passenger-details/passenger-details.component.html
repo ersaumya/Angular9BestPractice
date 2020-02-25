@@ -1,0 +1,26 @@
+<div>
+    <span class="status" [ngClass]="{'checked-in':detail.checkedin}"></span>
+    <div *ngIf="editing">
+        <input type="text"[value]="detail.name"
+        (input)="onNameChange(fname.value)" #fname>
+    </div>
+    <div *ngIf="!editing">
+        {{detail.name}}     
+    </div>
+    
+    
+    <div>
+        checked in date:{{detail.checkedin?(detail.date | date:'yMMMMd' | uppercase):'Not checked in'}}
+    </div>
+    <div>
+        Children: {{detail.children?.length || 0}}
+    </div>
+    <div>
+        <button (click)="toggleEdit()">
+            {{editing ? 'Done':'Edit'}}
+        </button>
+        <button (click)="onRemove()">
+            Remove
+        </button>
+    </div>
+</div>
