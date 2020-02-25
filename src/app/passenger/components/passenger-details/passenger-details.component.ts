@@ -21,11 +21,11 @@ export class PassengerDetailsComponent implements OnInit,OnChanges {
     if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
-    console.log('ngOnChanges');
+   // console.log('ngOnChanges');
   }
 
   ngOnInit(){
-    console.log('ngOnInit');
+    //console.log('ngOnInit');
   }
 
   onNameChange(value:string){

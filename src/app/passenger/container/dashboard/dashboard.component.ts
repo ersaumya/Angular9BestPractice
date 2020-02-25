@@ -12,17 +12,22 @@ export class DashboardComponent implements OnInit {
   constructor(private passengerService:PassengerService) { }
 
   ngOnInit(){
-    this.passengerService.getPassengers()
-    .subscribe(data=>{
+    this.passengerService.getPassengers().subscribe(
+      data => {
+        this.passengers = data;
+      }
       //console.log('Data :',data);
-      this.passengers=data;
-    });
+    );
   }
 
   handleRemove(event:Passenger){
-    this.passengers=this.passengers
-    .filter((passenger:Passenger)=>passenger.id!== event.id);
+    this.passengerService.deletePassengers(event).subscribe(data=>{
+        this.passengers = this.passengers.filter(
+          (passenger: Passenger) => passenger.id !== event.id
+        );
+    });
   }
+
   handleEdit(event:Passenger){
     this.passengerService.updatePassengers(event).subscribe(data => {
         this.passengers = this.passengers.map((passenger: Passenger) => {
