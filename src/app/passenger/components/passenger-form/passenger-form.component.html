@@ -10,15 +10,30 @@
     </div>
     <div>
         <label>
-            <input type="radio" [value]="true" name="checkedin" [ngModel]="detail?.checkedin" (ngModelChange)="toggleCheckIn($event)">Yes
+            <input type="checkbox"  name="checkedin" [ngModel]="detail?.checkedin" (ngModelChange)="toggleCheckIn($event)">
         </label>
-        <label>
+        <!-- <label>
             <input type="radio" [value]="false" name="checkedin" [ngModel]="detail?.checkedin"(ngModelChange)="toggleCheckIn($event)">No
-        </label>
+        </label> -->
     </div>
     <div *ngIf="form.value.checkedin">
         check in Date:
         <input type="number" name="date" [ngModel]="detail?.date">
+    </div>
+    <div>
+        Luggage:
+        <!-- <select name="baggage" [ngModel]="detail?.baggage">
+            <option *ngFor="let item of baggage" 
+            [value]="item.key"
+            [selected]="item.key===detail?.baggage">
+                {{item.value}}
+            </option>
+        </select> -->
+        <select name="baggage" [ngModel]="detail?.baggage">
+            <option *ngFor="let item of baggage" [ngValue]="item.key">
+                {{item.value}}
+            </option>
+        </select>
     </div>
     {{form.value | json}}
 </form>
