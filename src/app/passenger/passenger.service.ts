@@ -26,6 +26,14 @@ export class PassengerService {
         catchError((error:any)=>Observable.throw(error.json()))
         );
   }
+  getPassenger(id: number): Observable<Passenger>{
+    return this.httpClient
+      .get<Passenger>(`${this.PASSENGER_API}/${id}`)
+      .pipe(
+        tap(data => console.log(data)),
+        catchError((error: any) => Observable.throw(error.json()))
+      );
+  }
 
   updatePassengers(passenger: Passenger): Observable<Passenger> {
     const httpOptions = {

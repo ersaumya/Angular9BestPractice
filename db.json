@@ -5,42 +5,35 @@
       "name": "soumya rout",
       "checkedin": true,
       "date": 1490742000000,
-      "children": [
-        {
-          "name": "xxx",
-          "age": 12
-        },
-        {
-          "name": "yyy",
-          "age": 10
-        }
-      ]
+      "baggage": ""
     },
     {
       "id": 2,
       "name": "amiya",
       "checkedin": true,
       "date": 1490742000000,
-      "children": null
+      "baggage": ""
     },
     {
       "id": 3,
       "name": "sibashis",
       "checkedin": false,
       "date": null,
-      "children": null
+      "baggage": ""
     },
     {
       "id": 4,
       "name": "rinku",
       "checkedin": true,
       "date": 1490742000000,
-      "children": [
-        {
-          "name": "vvv",
-          "age": 13
-        }
-      ]
+      "baggage": ""
+    },
+    {
+      "id": 5,
+      "name": "pinku",
+      "checkedin": false,
+      "date": 1490742000000,
+      "baggage": ""
     }
   ]
 }

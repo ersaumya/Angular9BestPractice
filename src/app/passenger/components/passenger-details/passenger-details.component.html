@@ -12,9 +12,7 @@
     <div>
         checked in date:{{detail.checkedin?(detail.date | date:'yMMMMd' | uppercase):'Not checked in'}}
     </div>
-    <div>
-        Children: {{detail.children?.length || 0}}
-    </div>
+   
     <div>
         <button (click)="toggleEdit()">
             {{editing ? 'Done':'Edit'}}
