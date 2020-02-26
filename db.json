@@ -2,10 +2,10 @@
   "passengers": [
     {
       "id": 1,
-      "name": "soumya rout",
+      "name": "soumya ",
       "checkedin": true,
-      "date": 1490742000000,
-      "baggage": "none"
+      "baggage": "none",
+      "date": 1490742000000
     },
     {
       "id": 2,

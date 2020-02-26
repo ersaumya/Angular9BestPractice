@@ -1,12 +1,14 @@
-<form #form="ngForm" novalidate>
+<form #form="ngForm" (ngSubmit)="handleSubmit(form.value,form.valid)" novalidate>
     {{detail | json}}
     <div>
         Passenger Id:
-        <input type="number" name="id" [ngModel]="detail?.id">
+        <input type="number" name="id" #id="ngModel" required [ngModel]="detail?.id">
+        <div *ngIf="id.errors?.required && id.dirty" class="error">Passenger id is required</div>
     </div>
     <div>
         Passenger Name:
-        <input type="text" name="name" [ngModel]="detail?.name">
+        <input type="text" name="name" #name="ngModel" required [ngModel]="detail?.name">
+        <div *ngIf="name.errors?.required && name.dirty" class="error">Passenger name is required</div>
     </div>
     <div>
         <label>
@@ -22,18 +24,22 @@
     </div>
     <div>
         Luggage:
-        <!-- <select name="baggage" [ngModel]="detail?.baggage">
+        <select name="baggage" [ngModel]="detail?.baggage">
             <option *ngFor="let item of baggage" 
             [value]="item.key"
             [selected]="item.key===detail?.baggage">
                 {{item.value}}
             </option>
-        </select> -->
-        <select name="baggage" [ngModel]="detail?.baggage">
+        </select>
+       <!--  <select name="baggage" [ngModel]="detail?.baggage">
             <option *ngFor="let item of baggage" [ngValue]="item.key">
                 {{item.value}}
             </option>
-        </select>
+        </select> -->
     </div>
-    {{form.value | json}}
+    <button type="submit" [disabled]="form.invalid">
+        Upadate passenger
+    </button>
+    <div>valid:{{form.value | json}}</div>
+    <div>Invalid:{{form.invalid | json}}</div>
 </form>

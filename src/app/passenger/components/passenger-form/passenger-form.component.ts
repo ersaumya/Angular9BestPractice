@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Passenger } from '../../models/passenger.interface';
+import { Passenger } from './../../models/passenger.interface';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
 import { Baggage } from '../../models/baggage.interface';
+
 
 @Component({
   selector: 'app-passenger-form',
@@ -10,6 +12,7 @@ import { Baggage } from '../../models/baggage.interface';
 export class PassengerFormComponent implements OnInit {
 
   @Input() detail:Passenger;
+  @Output() update:EventEmitter<Passenger>=new EventEmitter<Passenger>();
 
   baggage:Baggage[]=[{
     key:'none',
@@ -31,11 +34,17 @@ export class PassengerFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   toggleCheckIn(checkedIn:boolean){
     if(checkedIn){
       this.detail.date = Date.now();//or +new Date()
     }
+  }
 
+  handleSubmit(passenger:Passenger,isValid:boolean){
+    if(isValid){
+      this.update.emit(passenger);
+    }
   }
 
 }
