@@ -5,19 +5,25 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PassengerModule } from './passenger/passenger.module';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent, 
+    NotFoundComponent
   ],
   imports: [
+    //Custome Modules 
+    //**Note-Always put feature routing module before application routing module
+    PassengerModule,
     //Angular Modules
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    //Custome Modules
-    PassengerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

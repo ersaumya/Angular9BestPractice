@@ -13,16 +13,20 @@ import { PassengerFormComponent } from './components/passenger-form/passenger-fo
 
 //service
 import { PassengerService } from './passenger.service';
+import { PassengerRoutingModule } from './passenger-routing.module';
+
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, PassengerCountComponent, PassengerDetailsComponent, PassengerViewerComponent, PassengerFormComponent],
+  declarations: [
+    DashboardComponent, PassengerCountComponent, PassengerDetailsComponent, PassengerViewerComponent, PassengerFormComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    PassengerRoutingModule
   ],
-  exports: [PassengerViewerComponent],
+  
   providers: [PassengerService]
 })
 export class PassengerModule { }

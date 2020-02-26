@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../../models/passenger.interface';
 import { PassengerService } from '../../passenger.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,9 @@ import { PassengerService } from '../../passenger.service';
 })
 export class DashboardComponent implements OnInit {
   passengers: Passenger[];
-  constructor(private passengerService:PassengerService) { }
+  constructor(
+    private router:Router,
+    private passengerService:PassengerService) { }
 
   ngOnInit(){
     this.passengerService.getPassengers().subscribe(
@@ -37,5 +40,9 @@ export class DashboardComponent implements OnInit {
           return passenger;
         });
     });
+  }
+
+  handleView(event:Passenger){
+    this.router.navigate(['/passengers',event.id]);
   }
 }

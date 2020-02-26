@@ -14,11 +14,16 @@
     </div>
    
     <div>
-        <button (click)="toggleEdit()">
+        <button (click)="toggleEdit()" style='margin-right:10px'>
             {{editing ? 'Done':'Edit'}}
         </button>
-        <button (click)="onRemove()">
+
+        <button (click)="onRemove()" style='margin-right:10px'>
             Remove
+        </button>
+
+        <button (click)="goToPassenger()">
+            View
         </button>
     </div>
 </div>
